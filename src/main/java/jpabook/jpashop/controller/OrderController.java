@@ -45,7 +45,11 @@ public class OrderController {
     public String order(@ModelAttribute("orderSearch") OrderSearch orderSearch, Model model){
         List<Order> orders = orderService.findOrders(orderSearch);
         model.addAttribute("orders", orders);
-
+        System.out.println("//////");
+        for (Order order : orders) {
+            System.out.println(order.getMember());
+        }
+        System.out.println("//////");
         return "order/orderList";
     }
 
